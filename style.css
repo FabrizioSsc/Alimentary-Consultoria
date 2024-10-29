@@ -4,35 +4,51 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Lato", sans-serif;
+    scroll-behavior: smooth;
+    transition: .5s ease;
 }
 
-header{
+/* TAMANHO DA FONTE PADRAO */
+:root {
+    font-size: 16px;
+}
+
+/* AUMENTA TAMANHO DA FONTE SE ESTIVER EM DESKTOP */
+
+@media (min-width: 768px) {
+    :root {
+        font-size: 24px; 
+
+    }
+
+}
+
+nav{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding: .8rem;
-    background-color: #4ade80;
-    min-height: 50px;
-    
-}
-
-nav {
-    display: flex;
-    gap: 2rem;
     align-items: center;     
     justify-content: center;   
-    font-size: 2rem;     
-    width: 100%;              
-}
+    flex-wrap: wrap;
+    
+    gap: 2rem;
+    font-size: 1.2rem;     
 
+    padding: .4rem;
+    background-color: #4ade80;
+    
+    width: 100%;
+    min-width: 360px;
+    min-height: 40px;
+
+    position:fixed;
+    z-index: 1;
+}
 
 .nav-links{
     text-decoration: none;
@@ -40,15 +56,15 @@ nav {
 }
 
 .nav-links:hover{
-    color: #70e3ea ;
+    color: #000 ;
     text-decoration: underline;
-    transition: .4s;
+    transition: .1s;
 }
 
 .main-container {
-    max-width: 80%;
+    /* max-width: 80%; */
     margin: 0 auto;
-    padding: 1rem;
+    /* padding: 1rem; */
 }
 
 /* Estilos da seção de informações */
@@ -58,7 +74,7 @@ nav {
     align-items: center;
     background-color: #fff;
     box-shadow: 0 0.1rem 0.5rem #ccc;
-    padding: 2rem;
+    padding: 2rem 1rem;
     margin-bottom: 1.5rem;
 }
 
@@ -66,31 +82,29 @@ nav {
     width: 15rem;
     height: auto;
     border-radius: 50%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .info-text h1 {
-    font-size: 2.9rem;
+    font-size: 3rem;
     text-align: center;
     margin: 0;
 }
-
-
 
 /* Estilos para a seção de formação acadêmica */
 .academic-section,
 .experience-section,
 .highlights-section {
     background-color: #fff;
-    box-shadow: 0 0.1rem 0.5rem #ccc;
-    padding: 2rem;
+    /* box-shadow: 0 0.1rem 0.5rem #ccc; */
+    padding: 3rem;
     margin-bottom: 1.5rem;
 }
 
 .academic-content h1,
 .experience-content h1,
 .highlights-content h1 {
-    font-size: 2.9rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
     text-align: center;
 }
@@ -105,35 +119,155 @@ nav {
 .academic-content li,
 .experience-content li,
 .highlights-content li {
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 2rem;
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
     text-align: justify;
 }
 
+
+/* SERVICES LIST */
+
+.services {
+    padding: 30px 30px 0px 30px; margin:30px 30px 0px 30px;
+
+}
+
+.title {
+    font-size: 2rem; font-weight: bold;
+}
+
+footer .title {
+    font-size: 1.3rem;
+}
+
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+    font-weight: light;
+}
+
+.item:hover {
+    cursor:pointer;
+
+    .item-img {
+        filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.250))
+
+    }
+}
+
+.item {
+    width:200px; margin-top: 30px;    text-align: center; font-size: 1rem;
+    .item-img {
+        width:100px;
+    }
+}
+
+.larger {
+    width:300px;
+}
+
+/* Footer */
+
+.link-container {
+    padding-left: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align:left;
+
+    position:relative;
+    min-height:55px;
+}
+
+.link {
+    font-size: 1.1rem; font-weight: 500;
+    color: black;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.link-circle {
+    position:absolute; left:-3px; width: 50px; padding:10px; border-radius: 50%; height:50px;
+    transition: 0.2s ease;
+}
+
+.link-circle:hover {
+    background-color:rgba(255, 255, 255, 0.13);
+}
+
+/* Logo */
+#logo {
+    width:20rem;
+    transition: 0.2s ease;
+}
+
+footer {
+    position:absolute; left:0; width:100%; background-color: #4ade80; padding: 15px 30px 25px 30%; margin-top: 50px; text-align:left;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 15px 30px 25px 30px;
+    }
+}
+
+@media (max-width: 400px) {
+    .link-container {
+        min-width: 60px;
+    }
+
+}
+
+
 /* Deixando Responsivo */
+
+@media (max-width: 768px) {
+    
+    .main-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .academic-section,
+    .experience-section,
+    .highlights-section {
+        padding: 1rem;
+    }
+
+}
+
 @media (min-width: 768px) {
+
+
     .info-section {
         flex-direction: row;
-        justify-content: start;
+        justify-content: center;
         align-items: center;
-        padding: 2rem;
+        padding: 1.5rem 1rem;
     }
 
     .profile-img {
-        width: 25rem;
+        width: 12rem;
         margin-right: 1.5rem;
+        margin-bottom: 0;
     }
 
     .info-text h1 {
-        font-size: 2.9rem;
+        font-size: 3rem;
         text-align: left;
     }
 
     .academic-content h1,
     .experience-content h1,
     .highlights-content h1 {
-        font-size: 2.9rem;
         text-align: left;
     }
 
@@ -143,28 +277,4 @@ nav {
         padding-left: 0;
     }
 
-    .academic-content li,
-    .experience-content li,
-    .highlights-content li {
-        font-size: 2rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .profile-img {
-        width: 30rem;
-    }
-
-    .info-text h1,
-    .academic-content h1,
-    .experience-content h1,
-    .highlights-content h1 {
-        font-size: 3rem;
-    }
-
-    .academic-content li,
-    .experience-content li,
-    .highlights-content li {
-        font-size: 2.5rem;
-    }
 }
